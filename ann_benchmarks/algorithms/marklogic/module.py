@@ -94,8 +94,7 @@ class MarkLogicBF(BaseANN):
         const qv = vec.vector(({queryEmbedding}))
         const rows =
             op.fromView('ann', 'items')
-            .bind(op.as('queryvector',qv))
-            .bind(op.as('sim', op.vec.{metric}(op.col('embedding'),op.col('queryvector'))))
+            .bind(op.as('sim', op.vec.{metric}(op.col('embedding'),qv)))
             .orderBy(op.{order}(op.col('sim')))
             .select(['id'])
             .limit({k})
