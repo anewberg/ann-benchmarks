@@ -1,0 +1,24 @@
+float:
+  any:
+  - base_args: ['@metric']
+    constructor: MarkLogicTrieLSH
+    disabled: true
+    docker_tag: ann-benchmarks-marklogic
+    module: ann_benchmarks.algorithms.marklogic
+    name: marklogic
+    run_groups:
+      default:
+        arg_groups: [{ HASH: 'ROTATION', MAX_POSTING_LIST_SIZE: 128, TRIE_BITS: 6,
+            MAX_TRIE_DEPTH: 28,HASH_STRIDE: 28, HASH_ROTATIONS: 512, NUM_TRIES: 32,
+            INDEX_TOLERANCE: 0.0, NUM_RESULTS: 100 }]
+        args: {}
+        query_args: [[0.05,0.075,0.1,0.125,0.15]]
+  - base_args: ['@metric']
+    constructor: MarkLogicBF
+    disabled: false
+    docker_tag: ann-benchmarks-marklogic
+    module: ann_benchmarks.algorithms.marklogic
+    name: marklogic
+    run_groups:
+      base:
+        args: []
