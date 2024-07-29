@@ -38,11 +38,13 @@ jobs:
           - dolphinnpy
           - elasticsearch
           - elastiknn
+          - expann
           - faiss
           - flann
           - glass
           - hnswlib
           - kdtree
+          - kgn
           - luceneknn
           - milvus
           - mrpt
